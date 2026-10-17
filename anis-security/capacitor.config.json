@@ -1,0 +1,12 @@
+{
+  "appId": "com.example.anissecurity",
+  "appName": "Anis Security",
+  "webDir": "public",
+  "server": {
+    "cleartext": false
+  },
+  "android": {
+    "allowMixedContent": false,
+    "webContentsDebuggingEnabled": false
+  }
+}
