@@ -1,29 +1,32 @@
 name: Build Anis Security APK
 
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     defaults:
       run:
         working-directory: anis-security
     steps:
       - uses: actions/checkout@v4
 
-      - name: Unzip project
-        working-directory: .
-        run: unzip -q anis-security-project.zip
-
       - uses: actions/setup-node@v4
         with:
           node-version: 22
 
-      - uses: actions/setup-java@v4
+      - uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: 21
+
+      - name: Check project files
+        run: |
+          ls -la
+          ls public
 
       - name: Install Capacitor
         run: |
