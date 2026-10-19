@@ -1,0 +1,29 @@
+{
+  "name": "Anis Security",
+  "short_name": "Anis Security",
+  "description": "Ёвари амнияти телефон: файл, пайванд, парол ва барномаҳо.",
+  "lang": "tg",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#12141f",
+  "theme_color": "#3b3fd8",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
