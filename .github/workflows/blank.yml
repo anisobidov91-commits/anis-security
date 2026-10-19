@@ -2,14 +2,19 @@ name: Build Anis Security APK
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: anis-security
     steps:
       - uses: actions/checkout@v4
+
+      - name: Unzip project
+        working-directory: .
+        run: unzip -q anis-security-project.zip
 
       - uses: actions/setup-node@v4
         with:
@@ -31,7 +36,7 @@ jobs:
           npx cap add android
           npx cap sync android
 
-      - name: Harden the manifest (no backups, no cleartext traffic)
+      - name: Harden manifest
         run: |
           M=android/app/src/main/AndroidManifest.xml
           sed -i 's/android:allowBackup="true"/android:allowBackup="false"/' "$M"
@@ -39,7 +44,7 @@ jobs:
           grep -n 'allowBackup\|usesCleartextTraffic' "$M"
 
       - name: Build debug APK
-        working-directory: android
+        working-directory: anis-security/android
         run: |
           chmod +x gradlew
           ./gradlew assembleDebug
@@ -50,4 +55,4 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: Anis-Security-debug-apk
-          path: Anis-Security-debug.apk
+          path: anis-security/Anis-Security-debug.apk
