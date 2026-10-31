@@ -1,0 +1,10 @@
+{
+  "name": "ANIS MON — IMEI Security System",
+  "short_name": "ANIS MON",
+  "description": "IMEI device verification and stolen-phone reporting interface",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#071426",
+  "theme_color": "#071426",
+  "icons": []
+}
